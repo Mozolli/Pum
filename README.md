@@ -2,6 +2,19 @@
 
 A browser-based arena survival game. Run `npm install`, then `npm start`, and open <http://localhost:8000>. The game uses [Kontra.js](https://straker.github.io/kontra/) for sprites and includes its own original artwork. No external content service is needed after installation.
 
+## Play online with GitHub Pages
+
+The GitHub Actions workflow builds and publishes the game whenever changes are pushed to `main`. It installs the build dependency in CI and includes the required browser module in the published files, so players only need a browser.
+
+To enable it for this repository:
+
+1. Push the workflow and site files to GitHub.
+2. In the repository, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+3. Open the **Actions** tab and wait for **Deploy to GitHub Pages** to finish.
+4. Open the Pages URL shown in the workflow run or under **Settings → Pages**. For this repository it will normally be <https://mozolli.github.io/Pum/>.
+
+For local checks, run `npm ci`, `npm run build`, then `npm start` and open <http://localhost:8000>. The build output is generated in `dist/` and does not need to be committed.
+
 Ability HUD icons use a small set of 32×32 pixel-art skills from [DeadKir on OpenGameArt](https://opengameart.org/content/pixelart-skills-icons), licensed CC0. Their black matte has been removed; the remaining class-specific icons are original local SVG pixel art. No credit is required by the license.
 
 The game also includes an original, looping dark-fantasy soundtrack and synthesized combat, skill, impact, level-up and reward sounds. Audio is generated locally with the Web Audio API, so there are no third-party samples or licensing dependencies. Music is muted by default; use the speaker button in the HUD to adjust its volume or mute and restore sound effects. Playback begins after the first player interaction to comply with browser autoplay rules.
