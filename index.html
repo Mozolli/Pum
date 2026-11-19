@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121923">
+  <title>Arena Survivors</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="arena-frame">
+    <canvas id="arena" width="1000" height="620" aria-label="Game arena"></canvas>
+    <div class="hud">
+      <div class="hud-group"><span>WAVE</span><strong id="wave">01 / 10</strong></div>
+      <div class="hud-group timer-display"><span>TIME</span><strong id="timer">00:30</strong></div>
+      <div class="hud-group"><span>GOLD</span><strong class="gold">◆ <span id="gold">0</span></strong></div>
+      <div class="hud-actions">
+        <button id="audio" class="help-button" aria-label="Audio settings" title="Audio settings" aria-haspopup="dialog" aria-expanded="false">♫</button>
+        <button id="pause" class="help-button" aria-label="Pause">Ⅱ</button>
+        <button id="help" class="help-button" aria-label="Help">?</button>
+      </div>
+    </div>
+    <section id="audio-menu" class="audio-menu" role="dialog" aria-label="Audio settings" hidden>
+      <div class="audio-menu-heading">
+        <strong>AUDIO</strong>
+        <button id="audio-close" class="audio-close" type="button" aria-label="Close audio settings">×</button>
+      </div>
+      <label class="audio-slider" for="music-volume">
+        <span>Music</span><output id="music-volume-value" for="music-volume">0%</output>
+        <input id="music-volume" type="range" min="0" max="100" step="1" value="0">
+      </label>
+      <label class="audio-slider" for="sfx-volume">
+        <span>Sound effects</span><output id="sfx-volume-value" for="sfx-volume">100%</output>
+        <input id="sfx-volume" type="range" min="0" max="100" step="1" value="100">
+      </label>
+      <button id="audio-mute-all" class="audio-mute-all" type="button" aria-pressed="false">MUTE ALL</button>
+    </section>
+    <div id="abilities" class="ability-bar" aria-label="Combat controls">
+      <div class="passive-skill-row" aria-label="Passive skills">
+        <div id="weapon-skill-control" class="ability effect-ability passive-ability" role="img" aria-label="Automatic weapon skill">
+          <span class="ability-key">AUTO</span><strong>Skill</strong><span class="ability-status">READY</span><img class="ability-icon" src="assets/skill-icons/fireball.png" alt="" aria-hidden="true">
+        </div>
+        <div id="hero-passive-control" class="ability effect-ability passive-ability" role="img" aria-label="Hero passive trait">
+          <span class="ability-key">PASSIVE</span><strong>Trait</strong><span class="ability-status">LOCKED</span><img class="ability-icon" src="assets/skill-icons/skull.png" alt="" aria-hidden="true">
+        </div>
+      </div>
+      <div class="active-skill-row" aria-label="Active skills">
+        <div id="attack-control" class="ability" aria-label="Basic Attack; hold LMB or RT/R2"><span class="ability-key">LMB</span><strong>Basic Attack</strong><span class="ability-status">READY</span><img class="ability-icon" src="assets/skill-icons/sword-cleave.png" alt="" aria-hidden="true"></div>
+        <button id="hero-skill" class="ability" aria-label="LT or right-click hero skill"><span class="ability-key">LT / RMB</span><strong>Skill</strong><span class="ability-status">READY</span><img class="ability-icon" src="assets/skill-icons/fireball.png" alt="" aria-hidden="true"></button>
+        <button id="hero-skill-w" class="ability" aria-label="LB or Q hero skill"><span class="ability-key">LB / Q</span><strong>Locked</strong><span class="ability-status">LVL 3</span><img class="ability-icon" src="assets/skill-icons/whirlwind.png" alt="" aria-hidden="true"></button>
+        <button id="ultimate" class="ability" aria-label="A/Cross or R ultimate"><span class="ability-key">A/× R</span><strong>Ultimate</strong><span class="ability-status">READY</span><img class="ability-icon" src="assets/skill-icons/explosion.png" alt="" aria-hidden="true"></button>
+        <button id="evade" class="ability" aria-label="B/Circle or Space: Evade"><span class="ability-key">B/○ SPACE</span><strong>Evade</strong><span class="ability-status">READY</span><img class="ability-icon" src="assets/skill-icons/green-surge.png" alt="" aria-hidden="true"></button>
+      </div>
+    </div>
+    <div class="xp-hud"><span id="level">LVL 1</span><div class="bar"><span id="xp-bar"></span></div><span id="xp-text">0 / 16</span></div>
+    <div id="overlay" class="overlay"></div>
+    <div class="mobile-controls" aria-label="Touch controls"><button data-move="up" aria-label="Up">▲</button><div><button data-move="left" aria-label="Left">◀</button><button data-move="down" aria-label="Down">▼</button><button data-move="right" aria-label="Right">▶</button></div></div>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

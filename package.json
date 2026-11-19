@@ -1,0 +1,12 @@
+{
+  "name": "arena-survivors-mvp",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "kontra": "10.0.2"
+  },
+  "scripts": {
+    "test": "node --test model.test.mjs game.test.mjs audio.test.mjs",
+    "start": "python3 -m http.server 8000"
+  }
+}
